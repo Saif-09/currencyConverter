@@ -9,7 +9,8 @@ function App() {
   const [to, SetTo] = useState("inr")
   const [amount, SetAmount] = useState()
 
-  const currencyData = useCurrencyConverter("from");
+  const currencyData = useCurrencyConverter(from);
+  const currencyOptions = Object.keys(currencyData);
 
 
   return (
@@ -21,6 +22,7 @@ function App() {
           }}>
             <div className="w-full mb-1">
               <InputBox
+              currencyOptions = {currencyOptions}
               amount={amount}
               onAmountChange = {(amount)=>SetAmount(amount)}
               />
