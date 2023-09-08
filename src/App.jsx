@@ -22,6 +22,8 @@ function App() {
           }}>
             <div className="w-full mb-1">
               <InputBox
+              onCurrencySelection = {(currency)=>setFrom(currency)}
+              selectedCurrency = {from}
               currencyOptions = {currencyOptions}
               amount={amount}
               onAmountChange = {(amount)=>SetAmount(amount)}

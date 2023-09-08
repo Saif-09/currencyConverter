@@ -3,6 +3,8 @@ import React,{useId} from 'react'
 const InputBox = ({
     amount,
     currencyOptions=[],
+    selectedCurrency="usd",
+    onCurrencySelection,
 
 }) => {
     const amountInputId = useId()
@@ -28,8 +30,10 @@ const InputBox = ({
 
             <select 
             className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
-            value={'usd'}
-            onChange={(e)=>{}}
+            value={selectedCurrency}
+            onChange={(e)=>{
+                onCurrencySelection &&onCurrencySelection(e.target.value)
+            }}
             disabled={''}>
 
                 {currencyOptions.map((currency)=>{
