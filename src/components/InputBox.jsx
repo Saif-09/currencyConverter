@@ -5,6 +5,7 @@ const InputBox = ({
     currencyOptions=[],
     selectedCurrency="usd",
     onCurrencySelection,
+    amountDisable,
 
 }) => {
     const amountInputId = useId()
