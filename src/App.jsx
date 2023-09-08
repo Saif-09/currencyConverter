@@ -1,6 +1,16 @@
+import { useState } from "react";
 import InputBox from "./components/InputBox";
+import useCurrencyConverter from "./hooks/useCurrency";
+
+
 function App() {
-  
+
+  const [from, setFrom] = useState("usd");
+  const [to, SetTo] = useState("inr")
+  const [amount, SetAmount] = useState()
+
+  const currencyData = useCurrencyConverter("from");
+
 
   return (
     <>
@@ -10,7 +20,10 @@ function App() {
             e.preventDefault();
           }}>
             <div className="w-full mb-1">
-              <InputBox/>
+              <InputBox
+              amount={amount}
+              onAmountChange = {(amount)=>SetAmount(amount)}
+              />
             </div>
             <div className="relative w-full h-0.5">
               <button  type="button"
@@ -18,7 +31,8 @@ function App() {
                             onClick={()=>{}} >swap</button>
             </div>
             <div className="w-full mt-1 mb-4">
-            <InputBox/>
+            <InputBox
+            />
             </div>
             <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">Convert USD To INR</button>
           </form>
